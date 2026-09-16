@@ -1,5 +1,6 @@
+
 using System;
-using System.Collection.Generic;
+using System.Collections.Generic;
 
 namespace StarShape
 {
@@ -13,9 +14,9 @@ namespace StarShape
         char[,] grid = new char[GridHeight, GridWidth];
         for(int r = 0; r < GridHeight; r++)
         {
-            for(int c = 0; c < Gridwidth; c++)
+            for(int c = 0; c < GridWidth; c++)
             {
-                grid[r, c] = '';
+                grid[r, c] = ' ';
             }
         }
                     
@@ -25,7 +26,7 @@ namespace StarShape
             double outerRadius = 12.0;
             double innerRadius = 5.0;
 
-            list<(double x, double y)> starVertices = GetStarVertices (centerX, centerY, outerRadius, innerRadius, 5);
+            List<(double x, double y)> starVertices = GetStarVertices (centerX, centerY, outerRadius, innerRadius, 5);
 
             for(int i = 0; i < starVertices.Count; i++)
             {
@@ -47,9 +48,9 @@ namespace StarShape
             {
                 double angle = starAngle + angleStep * i;
 
-                double radius = (i % == 0) ? outerRadius : innerRadius;
+                double radius = (i % 2 == 0) ? outerRadius : innerRadius;
                 double x = centerX = Math.Cos(angle) * radius;
-                double y = center + Math.Sin(angle) * radius;
+                double y = centerY + Math.Sin(angle) * radius;
 
                 vertices.Add((x, y));
             }
@@ -78,9 +79,9 @@ namespace StarShape
                 {
                     Console.Write(grid[r, c]);
                 }
-                Console.WriteLine()
+                Console.WriteLine();
             }
         }
     }
 }
-}
+
