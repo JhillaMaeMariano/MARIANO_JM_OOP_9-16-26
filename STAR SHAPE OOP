@@ -49,7 +49,7 @@ namespace StarShape
                 double angle = starAngle + angleStep * i;
 
                 double radius = (i % 2 == 0) ? outerRadius : innerRadius;
-                double x = centerX = Math.Cos(angle) * radius;
+                double x = centerX + Math.Cos(angle) * radius;
                 double y = centerY + Math.Sin(angle) * radius;
 
                 vertices.Add((x, y));
